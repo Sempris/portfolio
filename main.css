@@ -8,6 +8,10 @@
   text-decoration: none;
 }
 
+:root {
+  font-size: 100%;
+}
+
 body {
   width: 100%;
   font-family: "Quicksand";
@@ -45,6 +49,112 @@ hr {
   padding: 0 100px;
 }
 
+@media screen and (max-width: 1024px) {
+  .main__container {
+    padding: 0;
+  }
+}
+
+aside {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 20%;
+  height: auto;
+  background-color: #c0e3e7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 10px 20px 20px;
+  padding: 20px;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 10px grey;
+          box-shadow: 2px 2px 10px grey;
+}
+
+aside h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 20px 0;
+}
+
+aside .aside__title {
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1400px) and (min-width: 1023px) {
+  aside .aside__title {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 1400px) and (min-width: 1023px) {
+  aside .aside__links {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+aside .aside__links span {
+  margin: 0 7px;
+}
+
+@media screen and (max-width: 1400px) and (min-width: 1023px) {
+  aside .aside__links span {
+    margin: 10px;
+  }
+}
+
+aside .aside__links span svg {
+  color: #317343;
+}
+
+aside .aside__links span svg:hover {
+  color: #2f593b;
+}
+
+aside img {
+  width: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 1400px) and (min-width: 1023px) {
+  aside img {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  aside {
+    display: none;
+  }
+}
+
 main {
   width: 78%;
   background-color: #fff;
@@ -52,6 +162,55 @@ main {
   padding: 40px;
   border: 1px solid #e1e1e1;
   border-radius: 5px;
+}
+
+main .aside__alternate {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  main .aside__alternate {
+    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 20px;
+    padding: 20px;
+  }
+  main .aside__alternate h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 20px 0;
+  }
+  main .aside__alternate .aside__title {
+    margin-bottom: 20px;
+  }
+  main .aside__alternate .aside__links span {
+    margin: 0 7px;
+  }
+  main .aside__alternate .aside__links span svg {
+    color: #317343;
+  }
+  main .aside__alternate .aside__links span svg:hover {
+    color: #2f593b;
+  }
+  main .aside__alternate img {
+    width: 200px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    border-radius: 50%;
+  }
 }
 
 main .sharethis-inline-share-buttons {
@@ -63,15 +222,21 @@ main h1 {
 }
 
 main h3 {
-  font-size: 26px;
+  font-size: 1.5rem;
   text-transform: uppercase;
   font-weight: 400;
   margin: 20px 0;
   color: grey;
 }
 
+@media screen and (max-width: 1024px) {
+  main h3 {
+    font-size: 1.2rem;
+  }
+}
+
 main p {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 28px;
 }
 
@@ -130,6 +295,24 @@ main .info .info__left .info__left-inner > div:nth-child(1) p {
   margin-right: 50px;
 }
 
+@media screen and (max-width: 768px) {
+  main .info .info__left .info__left-inner > div:nth-child(1) p {
+    margin-right: 15px;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 767px) {
+  main .info .info__left .info__left-inner > div:nth-child(1) p {
+    margin-right: 100px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  main .info .info__left {
+    width: 100%;
+  }
+}
+
 main .info .info__right {
   width: 50%;
   display: -webkit-box;
@@ -153,22 +336,64 @@ main .info .info__right .progress {
   border-radius: 20px;
 }
 
+@media screen and (max-width: 768px) {
+  main .info .info__right .progress {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 767px) {
+  main .info .info__right .progress {
+    width: 200%;
+  }
+}
+
+@-webkit-keyframes progress {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes progress {
+  from {
+    width: 0;
+  }
+}
+
+main .info .info__right .progress-bar {
+  text-align: left;
+  border-radius: 20px;
+  background-color: #c0e3e7;
+  -webkit-animation: progress 2s linear;
+          animation: progress 2s linear;
+  -webkit-transition: width 3s;
+  transition: width 3s;
+}
+
 main .info .info__right span {
   display: block;
   position: relative;
-  font-size: 16px;
+  font-size: 1rem;
+  line-height: 28px;
   font-weight: 600;
   text-transform: uppercase;
   line-height: 28px;
   margin: 7px 0;
 }
 
-main .info .info__right .progress-bar {
-  text-align: left;
-  border-radius: 20px;
-  -webkit-transition-duration: 3s;
-          transition-duration: 3s;
-  background-color: #c0e3e7;
+@media screen and (max-width: 1024px) {
+  main .info .info__right {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  main .info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 main .skills {
@@ -195,12 +420,29 @@ main .skills .skills__left .progress {
   width: 175%;
   height: 20px;
   border-radius: 20px;
+  -webkit-animation: progress 2s linear;
+          animation: progress 2s linear;
+  -webkit-transition: width 3s;
+  transition: width 3s;
+}
+
+@media screen and (max-width: 768px) {
+  main .skills .skills__left .progress {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 767px) {
+  main .skills .skills__left .progress {
+    width: 200%;
+  }
 }
 
 main .skills .skills__left span {
   display: block;
   position: relative;
-  font-size: 16px;
+  font-size: 1rem;
+  line-height: 28px;
   font-weight: 600;
   text-transform: uppercase;
   line-height: 28px;
@@ -215,6 +457,12 @@ main .skills .skills__left .progress-bar {
   background-color: #317343;
 }
 
+@media screen and (max-width: 1024px) {
+  main .skills .skills__left {
+    width: 100%;
+  }
+}
+
 main .skills .skills__right {
   width: 50%;
 }
@@ -227,9 +475,9 @@ main .skills .skills__right .circles {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -238,7 +486,7 @@ main .skills .skills__right .circles {
 }
 
 main .skills .skills__right .circles .circular-progress {
-  margin-bottom: 20px;
+  margin: 0 10px 10px 0;
   -webkit-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
   position: relative;
@@ -455,7 +703,27 @@ main .skills .skills__right .circles .time:after {
   background: linear-gradient(transparent 50%, white 100%);
 }
 
-main .portfolio__inner {
+@media screen and (max-width: 1024px) {
+  main .skills .skills__right {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  main .skills {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+main .portfolio {
+  width: 100%;
+}
+
+main .portfolio .portfolio__inner {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -471,25 +739,182 @@ main .portfolio__inner {
           align-items: center;
 }
 
-main .card {
+@media screen and (max-width: 1024px) {
+  main .portfolio .portfolio__inner {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 1023px) {
+  main .portfolio .portfolio__inner {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+main .portfolio .card {
   width: 25%;
   height: 525px;
   margin: 20px 20px 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-main .card h5 {
+@media screen and (max-width: 768px) {
+  main .portfolio .card {
+    width: 100%;
+    height: 575px;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 767px) {
+  main .portfolio .card {
+    width: calc(50% - 20px);
+    height: 575px;
+  }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 1023px) {
+  main .portfolio .card {
+    width: calc(50% - 20px);
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main .portfolio .card img {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 767px) {
+  main .portfolio .card img {
+    width: 325px;
+  }
+}
+
+main .portfolio .card:hover {
+  -webkit-box-shadow: 2px 2px 5px #317343;
+          box-shadow: 2px 2px 5px #317343;
+  cursor: pointer;
+}
+
+main .portfolio .card h5 {
   text-align: center;
 }
 
-main .card .btn-success {
+main .portfolio .card .btn-success {
   font-weight: 500;
   background-color: #317343;
+}
+
+main .portfolio .github {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+@media screen and (max-width: 1024px) {
+  main .portfolio .github {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 1440px) and (min-width: 1023px) {
+  main .portfolio .github {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+main .portfolio .github .gitproject {
+  width: 25%;
+  height: 200px;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  margin-right: 20px;
+  padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  main .portfolio .github .gitproject {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 767px) {
+  main .portfolio .github .gitproject {
+    width: calc(50% - 20px);
+    margin: 10px 20px 10px 0;
+  }
+}
+
+@media screen and (max-width: 1650px) and (min-width: 1023px) {
+  main .portfolio .github .gitproject {
+    width: calc(50% - 20px);
+    height: auto;
+    margin: 10px;
+  }
+}
+
+main .portfolio .github .gitproject:hover {
+  -webkit-box-shadow: 2px 2px 5px #317343;
+          box-shadow: 2px 2px 5px #317343;
+  cursor: pointer;
+}
+
+main .portfolio .github .gitproject h4 {
+  font-size: 1.3rem;
+}
+
+main .portfolio .github .gitproject h4 .fas {
+  margin-right: 5px;
+}
+
+main .portfolio .github .gitproject p {
+  font-size: 1rem;
+  line-height: 28px;
+}
+
+main .portfolio .github .gitproject a {
+  text-decoration: none;
+  color: black;
 }
 
 main .timeline {
   width: 100%;
   margin: 20px auto;
   position: relative;
+}
+
+main .timeline img {
+  width: 60px;
+  float: right;
+  margin: 15px;
 }
 
 main .timeline:before {
@@ -507,6 +932,12 @@ main .timeline:before {
           box-shadow: 2px 2px 5px #317343;
 }
 
+@media screen and (max-width: 768px) {
+  main .timeline:before {
+    display: none;
+  }
+}
+
 main .timeline article {
   width: 100%;
   margin: 0 0 20px 0;
@@ -519,7 +950,13 @@ main .timeline article:after {
   clear: both;
 }
 
-main .timeline article div.timeline__inner {
+@media screen and (max-width: 768px) {
+  main .timeline article:after {
+    display: none;
+  }
+}
+
+main .timeline article .timeline__inner {
   width: 40%;
   float: left;
   margin: 5px;
@@ -529,15 +966,23 @@ main .timeline article div.timeline__inner {
           box-shadow: 2px 2px 5px #e1e1e1;
 }
 
-main .timeline article div.timeline__inner p {
+@media screen and (max-width: 768px) {
+  main .timeline article .timeline__inner {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+main .timeline article .timeline__inner p {
   padding: 5px 10px !important;
   font-size: 16px !important;
   font-weight: 400 !important;
   line-height: 20px;
 }
 
-main .timeline article div.timeline__inner h2 {
-  word-spacing: .4rem;
+main .timeline article .timeline__inner h2 {
+  word-spacing: 0.3rem;
+  font-size: 4rem;
 }
 
 main .timeline article div.timeline__inner span.date {
@@ -560,9 +1005,21 @@ main .timeline article div.timeline__inner span.date {
           box-shadow: 3px 3px 15px #c0e3e7;
 }
 
+@media screen and (max-width: 768px) {
+  main .timeline article div.timeline__inner span.date {
+    display: none;
+  }
+}
+
 main .timeline article div.timeline__inner span.date span {
   display: block;
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  main .timeline article div.timeline__inner span.date span {
+    display: none;
+  }
 }
 
 main .timeline article div.timeline__inner span.date span.day {
@@ -575,6 +1032,12 @@ main .timeline article div.timeline__inner span.date span.month {
 
 main .timeline article div.inner span.date span.year {
   font-size: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  main .timeline article div.inner span.date span.year {
+    display: none;
+  }
 }
 
 main .timeline article div.timeline__inner h2 {
@@ -616,11 +1079,11 @@ main .timeline article:nth-child(odd) div.timeline__inner h2:after {
   left: -5px;
 }
 
-main .timeline article:nth-child(even) div.timeline__inner h2 {
+main .timeline article:nth-child(odd) div.timeline__inner h2 {
   background: #317343;
 }
 
-main .timeline article:nth-child(odd) div.timeline__inner h2 {
+main .timeline article:nth-child(even) div.timeline__inner h2 {
   background: #c0e3e7;
   color: black;
 }
@@ -678,18 +1141,61 @@ main .interests .interests__inner {
       flex-wrap: wrap;
 }
 
+@media screen and (max-width: 768px) {
+  main .interests .interests__inner {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 767px) {
+  main .interests .interests__inner {
+    width: 100%;
+    padding: 0 30px;
+  }
+}
+
 main .interests .interests__inner .hobby {
   width: 33%;
   margin: 10px 0;
 }
 
+@media screen and (max-width: 768px) {
+  main .interests .interests__inner .hobby {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 767px) {
+  main .interests .interests__inner .hobby {
+    width: 30%;
+  }
+}
+
 main .interests .interests__inner .hobby span {
-  font-size: 24px;
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  main .interests .interests__inner .hobby span {
+    font-size: .8rem;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 767px) {
+  main .interests .interests__inner .hobby span {
+    font-size: 1.3rem;
+  }
 }
 
 main .interests .interests__inner .hobby span .fas {
   margin-right: 10px;
   color: #317343;
+}
+
+@media screen and (max-width: 768px) {
+  main .interests .interests__inner .hobby span .fas {
+    margin-right: 3px;
+  }
 }
 
 main .blog {
@@ -724,6 +1230,12 @@ main .contact .contact__inner {
   margin: 0 auto;
 }
 
+@media screen and (max-width: 1024px) {
+  main .contact .contact__inner {
+    width: 100%;
+  }
+}
+
 main .contact .contact__inner form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -748,14 +1260,16 @@ main .contact .contact__inner form label {
   margin: 10px 0;
 }
 
-main .contact .contact__inner form input, main .contact .contact__inner form textarea {
+main .contact .contact__inner form input,
+main .contact .contact__inner form textarea {
   width: 100%;
   background-color: #eeeeee;
   border: 1px solid #e1e1e1;
   padding: 5px 10px;
 }
 
-main .contact .contact__inner form input:focus, main .contact .contact__inner form textarea:focus {
+main .contact .contact__inner form input:focus,
+main .contact .contact__inner form textarea:focus {
   outline: 0;
   border: 2px solid #c0e3e7;
   -webkit-box-shadow: 2px 2px 10px #c0e3e7;
@@ -778,61 +1292,11 @@ main .contact .contact__inner form button a {
   font-weight: 500;
 }
 
-aside {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  width: 20%;
-  height: auto;
-  background-color: #c0e3e7;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 20px 10px 20px 20px;
-  padding: 20px;
-  border-radius: 5px;
-  -webkit-box-shadow: 2px 2px 10px grey;
-          box-shadow: 2px 2px 10px grey;
-}
-
-aside h2 {
-  text-align: center;
-  font-size: 30px;
-  font-weight: 500;
-  margin: 20px 0;
-}
-
-aside .aside__title {
-  margin-bottom: 20px;
-}
-
-aside .aside__links span {
-  margin: 0 7px;
-}
-
-aside .aside__links span svg {
-  color: #317343;
-}
-
-aside .aside__links span svg:hover {
-  color: #2f593b;
-}
-
-aside img {
-  width: 200px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 50%;
+@media screen and (max-width: 1024px) {
+  main {
+    width: 98%;
+    padding: 10px 20px;
+  }
 }
 
 nav {
@@ -855,13 +1319,15 @@ nav ul img {
   border-radius: 50%;
 }
 
-nav ul .fas, nav ul .far {
-  font-size: 32px;
+nav ul .fas,
+nav ul .far {
+  font-size: 2rem;
   margin: 10px 0 10px 8px;
   color: #317343;
 }
 
-nav ul .fas:hover, nav ul .far:hover {
+nav ul .fas:hover,
+nav ul .far:hover {
   color: #2f593b;
 }
 

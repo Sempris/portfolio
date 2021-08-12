@@ -11,17 +11,21 @@
 
 @mixin heading2 {
     text-align: center;
-    font-size: 30px;
+    font-size: 2rem;
     font-weight: 500;
     margin: 20px 0;
 }
 
 @mixin heading3 {
-    font-size: 26px;
+    font-size: 1.5rem;
     text-transform: uppercase;
     font-weight: 400;
     margin: 20px 0;
     color: grey;
+
+    @media screen and (max-width: 1024px) {
+        font-size: 1.2rem;
+    }
 }
 
 @mixin hrStyle {
@@ -30,7 +34,7 @@
 }
 
 @mixin pStyle {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 28px;
 }
 

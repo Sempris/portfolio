@@ -2,6 +2,10 @@
 @import "variables";
 @import "mixins";
 
+:root {
+    font-size: 100%;
+}
+
 body {
     width: $full-width;
     font-family: $mainfont;
@@ -24,6 +28,72 @@ hr {
     height: auto;
     @include flexBox(row, space-between, flex-start);
     padding: 0 100px;
+
+    @media screen and (max-width: 1024px) {
+        padding: 0;
+    }
+}
+
+aside {
+    position: sticky;
+    top: 0;
+    width: 20%;
+    height: auto;
+    background-color: map-get($colors, main);
+    @include flexBox(column, center, center);
+    margin: 20px 10px 20px 20px;
+    padding: 20px;
+    border-radius: 5px;
+    @include shadow(2px, 2px, 10px, grey);
+
+    h2 {
+        @include heading2;
+    }
+
+    .aside__title {
+        margin-bottom: 20px;
+
+        @media screen and (max-width: 1400px) and (min-width: 1023px) {
+            text-align: center;
+        }
+    }
+
+    .aside__links {
+        @media screen and (max-width: 1400px) and (min-width: 1023px) {
+            @include flexBox(row, space-around, center);
+            flex-wrap: wrap;
+        }
+    }
+
+    .aside__links span {
+        margin: 0 7px;
+
+        @media screen and (max-width: 1400px) and (min-width: 1023px) {
+            margin: 10px;
+        }
+    }
+
+    .aside__links span svg {
+        color: map-get($colors, support);
+
+        &:hover {
+            color: #2f593b;
+        }
+    }
+
+    img {
+        width: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+
+        @media screen and (max-width: 1400px) and (min-width: 1023px) {
+            width: 150px;
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        display: none;
+    }
 }
 
 main {
@@ -33,6 +103,44 @@ main {
     padding: 40px;
     border: 1px solid map-get($colors, hr);
     border-radius: 5px;
+
+    .aside__alternate {
+        display: none;
+
+        @media screen and (max-width: 1024px) {
+            display: block;
+            
+            @include flexBox(column, center, center);
+            margin: 20px;
+            padding: 20px;
+
+            h2 {
+                @include heading2;
+            }
+        
+            .aside__title {
+                margin-bottom: 20px;
+            }
+        
+            .aside__links span {
+                margin: 0 7px;
+            }
+        
+            .aside__links span svg {
+                color: map-get($colors, support);
+        
+                &:hover {
+                    color: #2f593b;
+                }
+            }
+        
+            img {
+                width: 200px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+        }
+    }
 
     .sharethis-inline-share-buttons {
         margin: 40px 0;
@@ -64,7 +172,19 @@ main {
                 > div:nth-child(1) p {
                     font-weight: 900;
                     margin-right: 50px;
+
+                    @media screen and (max-width: 768px) {
+                        margin-right: 15px;
+                    }
+
+                    @media screen and (max-width: 1024px) and (min-width: 767px) {
+                        margin-right: 100px;
+                    }
                 }
+            }
+
+            @media screen and (max-width: 1024px) {
+                width: 100%;
             }
         }
 
@@ -76,24 +196,47 @@ main {
                 width: 175%;
                 height: 20px;
                 border-radius: 20px;
+
+                @media screen and (max-width: 768px) {
+                    width: 100%;
+                }
+
+                @media screen and (max-width: 1024px) and (min-width: 767px) {
+                    width: 200%;
+                }
+
+                @keyframes progress {
+                    from {
+                        width: 0;
+                    }
+                }
+            }
+
+            .progress-bar {
+                text-align: left;
+                border-radius: 20px;
+                background-color: map-get($colors, main);
+                animation: progress 2s linear;
+                transition: width 3s;
             }
 
             span {
                 display: block;
                 position: relative;
-                font-size: 16px;
+                @include pStyle;
                 font-weight: 600;
                 text-transform: uppercase;
                 line-height: 28px;
                 margin: 7px 0;
             }
 
-            .progress-bar {
-                text-align: left;
-                border-radius: 20px;
-                transition-duration: 3s;
-                background-color: map-get($colors, main);
+            @media screen and (max-width: 1024px) {
+                width: 100%;
             }
+        }
+
+        @media screen and (max-width: 1024px) {
+            flex-direction: column;
         }
     }
 
@@ -107,12 +250,22 @@ main {
                 width: 175%;
                 height: 20px;
                 border-radius: 20px;
+                animation: progress 2s linear;
+                transition: width 3s;
+
+                @media screen and (max-width:768px) {
+                    width: 100%;
+                }
+
+                @media screen and (max-width: 1024px) and (min-width: 767px) {
+                    width: 200%;
+                }
             }
 
             span {
                 display: block;
                 position: relative;
-                font-size: 16px;
+                @include pStyle;
                 font-weight: 600;
                 text-transform: uppercase;
                 line-height: 28px;
@@ -125,17 +278,21 @@ main {
                 transition-duration: 3s;
                 background-color: map-get($colors, support);
             }
+
+            @media screen and (max-width: 1024px) {
+                width: 100%;
+            }
         }
 
         .skills__right {
             width: 50%;
 
             .circles {
-                @include flexBox(row, space-between, center);
+                @include flexBox(row, space-evenly, center);
                 flex-wrap: wrap;
 
                 .circular-progress {
-                    margin-bottom: 20px;
+                    margin: 0 10px 10px 0;
                     transition: all 1s ease-in-out;
                     &,
                     &:before,
@@ -203,25 +360,136 @@ main {
                     @include circular-progress(99, Punctuality, tomato, white);
                 }
             }
+
+            @media screen and (max-width: 1024px) {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 1024px) {
+            flex-direction: column;
         }
     }
 
-    .portfolio__inner {
-        @include flexBox(row, space-between, center);
-    }
+    .portfolio {
+        width: $full-width;
 
-    .card {
-        width: 25%;
-        height: 525px;
-        margin: 20px 20px 20px 0;
+        .portfolio__inner {
+            width: 100%;
+            @include flexBox(row, space-between, center);
 
-        h5 {
-            text-align: center;
+            @media screen and (max-width: 1024px) {
+                flex-wrap: wrap;
+            }
+
+            @media screen and (max-width: 1440px) and (min-width: 1023px) {
+                flex-wrap: wrap;
+            }
         }
 
-        .btn-success {
-            font-weight: 500;
-            background-color: map-get($colors, support);
+        .card {
+            width: 25%;
+            height: 525px;
+            margin: 20px 20px 20px 0;
+            @include flexBox(column, space-evenly, center);
+
+            @media screen and (max-width: 768px) {
+                width: 100%;
+                height: 575px;
+            }
+
+            @media screen and (max-width: 1024px) and (min-width: 767px) {
+                width: calc(50% - 20px);
+                height: 575px;
+            }
+
+            @media screen and (max-width: 1440px) and (min-width: 1023px) {
+                width: calc(50% - 20px);
+                height: auto;
+            }
+
+            img {
+                @media screen and (max-width: 768px) {
+                    width: 300px;
+                }
+
+                @media screen and (max-width: 1024px) and (min-width: 767px) {
+                    width: 325px;
+                }
+            }
+
+            &:hover {
+                @include shadow(2px, 2px, 5px, map-get($colors, support));
+                cursor: pointer;
+            }
+
+            h5 {
+                text-align: center;
+            }
+
+            .btn-success {
+                font-weight: 500;
+                background-color: map-get($colors, support);
+            }
+        }
+
+        .github {
+            @include flexBox(row, space-between, flex-start);
+
+            @media screen and (max-width: 1024px) {
+                flex-wrap: wrap;
+            }
+
+            @media screen and (max-width: 1440px) and (min-width: 1023px) {
+                flex-wrap: wrap;
+            }
+
+            .gitproject {
+                width: 25%;
+                height: 200px;
+                border: 1px solid map-get($colors, hr);
+                border-radius: 5px;
+                margin-right: 20px;
+                padding: 20px;
+
+                @media screen and (max-width: 768px) {
+                    width: 100%;
+                    margin: 10px 0;
+                }
+
+                @media screen and (max-width: 1024px) and (min-width: 767px) {
+                    width: calc(50% - 20px);
+                    margin: 10px 20px 10px 0;
+                }
+
+                @media screen and (max-width: 1650px) and (min-width: 1023px) {
+                    width: calc(50% - 20px);
+                    height: auto;
+                    margin: 10px;
+                }
+
+                &:hover {
+                    @include shadow(2px, 2px, 5px, map-get($colors, support));
+                    cursor: pointer;
+                }
+
+                h4 {
+                    font-size: 1.3rem;
+
+                    .fas {
+                        margin-right: 5px;
+                    }
+                }
+
+                p {
+                    @include pStyle;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                }
+            }
         }
     }
 
@@ -229,6 +497,12 @@ main {
         width: 100%;
         margin: 20px auto;
         position: relative;
+
+        img {
+            width: 60px;
+            float: right;
+            margin: 15px;
+        }
 
         &:before {
             content: "";
@@ -241,6 +515,10 @@ main {
             height: 100%;
             background: map-get($colors, support);
             @include shadow(2px, 2px, 5px, map-get($colors, support));
+
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
         }
 
         article {
@@ -248,20 +526,29 @@ main {
             margin: 0 0 20px 0;
             position: relative;
         }
-        
+
         article:after {
             content: "";
             display: block;
             clear: both;
+
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
         }
 
-        article div.timeline__inner {
+        article .timeline__inner {
             width: 40%;
             float: left;
             margin: 5px;
             border-radius: 6px;
             border: 1px solid map-get($colors, hr);
             @include shadow(2px, 2px, 5px, map-get($colors, hr));
+
+            @media screen and (max-width: 768px) {
+                width: 100%;
+                margin: 10px 0;
+            }
 
             p {
                 padding: 5px 10px !important;
@@ -271,7 +558,8 @@ main {
             }
 
             h2 {
-                word-spacing: .4rem;
+                word-spacing: 0.3rem;
+                font-size: 4rem;
             }
         }
 
@@ -292,11 +580,19 @@ main {
             color: black;
             border: 2px solid map-get($colors, support);
             box-shadow: 3px 3px 15px map-get($colors, main);
+
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
         }
 
         article div.timeline__inner span.date span {
             display: block;
             text-align: center;
+
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
         }
 
         article div.timeline__inner span.date span.day {
@@ -309,6 +605,10 @@ main {
 
         article div.inner span.date span.year {
             font-size: 10px;
+
+            @media screen and (max-width: 768px) {
+                display: none;
+            }
         }
 
         article div.timeline__inner h2 {
@@ -349,11 +649,11 @@ main {
             left: -5px;
         }
 
-        article:nth-child(even) div.timeline__inner h2 {
+        article:nth-child(odd) div.timeline__inner h2 {
             background: map-get($colors, support);
         }
 
-        article:nth-child(odd) div.timeline__inner h2 {
+        article:nth-child(even) div.timeline__inner h2 {
             background: map-get($colors, main);
             color: black;
         }
@@ -398,17 +698,46 @@ main {
             margin: 0 auto;
             @include flexBox(row, space-between, center);
             flex-wrap: wrap;
-            
+
+            @media screen and (max-width: 768px) {
+                padding: 0;
+            }
+
+            @media screen and (max-width: 1024px) and (min-width: 767px) {
+                width: 100%;
+                padding: 0 30px;
+            }
+
             .hobby {
                 width: 33%;
                 margin: 10px 0;
 
+                @media screen and (max-width: 768px) {
+                    width: 50%;
+                }
+
+                @media screen and (max-width: 1024px) and (min-width: 767px) {
+                    width: 30%;
+                }
+
                 span {
-                    font-size: 24px;
+                    font-size: 1.5rem;
+
+                    @media screen and (max-width: 768px) {
+                        font-size: .8rem;
+                    }
+
+                    @media screen and (max-width: 1024px) and (min-width: 767px) {
+                        font-size: 1.3rem;
+                    }
 
                     .fas {
                         margin-right: 10px;
                         color: map-get($colors, support);
+
+                        @media screen and (max-width: 768px) {
+                            margin-right: 3px;
+                        }
                     }
                 }
             }
@@ -438,6 +767,10 @@ main {
             width: 50%;
             margin: 0 auto;
 
+            @media screen and (max-width: 1024px) {
+                width: 100%;
+            }
+
             form {
                 @include flexBox(column, center, center);
 
@@ -449,7 +782,8 @@ main {
                     margin: 10px 0;
                 }
 
-                input, textarea {
+                input,
+                textarea {
                     width: 100%;
                     background-color: #eeeeee;
                     border: 1px solid map-get($colors, hr);
@@ -473,44 +807,10 @@ main {
             }
         }
     }
-}
 
-aside {
-    position: sticky;
-    top: 0;
-    width: 20%;
-    height: auto;
-    background-color: map-get($colors, main);
-    @include flexBox(column, center, center);
-    margin: 20px 10px 20px 20px;
-    padding: 20px;
-    border-radius: 5px;
-    @include shadow(2px, 2px, 10px, grey);
-
-    h2 {
-        @include heading2;
-    }
-
-    .aside__title {
-        margin-bottom: 20px;
-    }
-
-    .aside__links span {
-        margin: 0 7px;
-    }
-
-    .aside__links span svg {
-        color: map-get($colors, support);
-
-        &:hover {
-            color: #2f593b;
-        }
-    }
-
-    img {
-        width: 200px;
-        object-fit: cover;
-        border-radius: 50%;
+    @media screen and (max-width: 1024px) {
+        width: 98%;
+        padding: 10px 20px;
     }
 }
 
@@ -530,8 +830,9 @@ nav {
             border-radius: 50%;
         }
 
-        .fas, .far {
-            font-size: 32px;
+        .fas,
+        .far {
+            font-size: 2rem;
             margin: 10px 0 10px 8px;
             color: map-get($colors, support);
 
