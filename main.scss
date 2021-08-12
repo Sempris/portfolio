@@ -1,0 +1,551 @@
+@import "reset";
+@import "variables";
+@import "mixins";
+
+body {
+    width: $full-width;
+    font-family: $mainfont;
+    background-image: url("./img/light-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+hr {
+    @include hrStyle;
+}
+
+.container {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.main__container {
+    width: $full-width;
+    height: auto;
+    @include flexBox(row, space-between, flex-start);
+    padding: 0 100px;
+}
+
+main {
+    width: 78%;
+    background-color: #fff;
+    margin: 20px 0 20px 10px;
+    padding: 40px;
+    border: 1px solid map-get($colors, hr);
+    border-radius: 5px;
+
+    .sharethis-inline-share-buttons {
+        margin: 40px 0;
+    }
+
+    h1 {
+        margin: 20px 0;
+    }
+
+    h3 {
+        @include heading3;
+    }
+
+    p {
+        @include pStyle;
+    }
+
+    .info {
+        @include flexBox(row, space-between, flex-start);
+
+        .info__left {
+            width: calc(50% - 50px);
+            margin-right: 50px;
+            @include flexBox(column, flex-start, flex-start);
+
+            .info__left-inner {
+                @include flexBox(row, flex-start, flex-start);
+
+                > div:nth-child(1) p {
+                    font-weight: 900;
+                    margin-right: 50px;
+                }
+            }
+        }
+
+        .info__right {
+            width: 50%;
+            @include flexBox(column, flex-start, flex-start);
+
+            .progress {
+                width: 175%;
+                height: 20px;
+                border-radius: 20px;
+            }
+
+            span {
+                display: block;
+                position: relative;
+                font-size: 16px;
+                font-weight: 600;
+                text-transform: uppercase;
+                line-height: 28px;
+                margin: 7px 0;
+            }
+
+            .progress-bar {
+                text-align: left;
+                border-radius: 20px;
+                transition-duration: 3s;
+                background-color: map-get($colors, main);
+            }
+        }
+    }
+
+    .skills {
+        @include flexBox(row, space-between, flex-start);
+
+        .skills__left {
+            width: 50%;
+
+            .progress {
+                width: 175%;
+                height: 20px;
+                border-radius: 20px;
+            }
+
+            span {
+                display: block;
+                position: relative;
+                font-size: 16px;
+                font-weight: 600;
+                text-transform: uppercase;
+                line-height: 28px;
+                margin: 7px 0;
+            }
+
+            .progress-bar {
+                text-align: left;
+                border-radius: 20px;
+                transition-duration: 3s;
+                background-color: map-get($colors, support);
+            }
+        }
+
+        .skills__right {
+            width: 50%;
+
+            .circles {
+                @include flexBox(row, space-between, center);
+                flex-wrap: wrap;
+
+                .circular-progress {
+                    margin-bottom: 20px;
+                    transition: all 1s ease-in-out;
+                    &,
+                    &:before,
+                    &:after {
+                        width: 8rem;
+                        height: 8rem;
+                        border-radius: 50%;
+                    }
+
+                    position: relative;
+                    &:before,
+                    &:after {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        text-align: center;
+                    }
+                    &:before {
+                        background: #fff content-box;
+                        padding: 0.5em;
+                        font-size: 0.85rem;
+                        line-height: 5rem;
+                        box-sizing: border-box;
+                        color: white;
+                    }
+                    &:after {
+                        line-height: 10rem;
+                    }
+                }
+
+                @function prog($per) {
+                    $deg: $per * 1.8;
+                    @return #{$deg}deg;
+                }
+
+                .teamwork {
+                    @include circular-progress(90, Teamwork, maroon, white);
+                }
+
+                .creativity {
+                    @include circular-progress(95, Creativity, blue, white);
+                }
+
+                .flexibility {
+                    @include circular-progress(99, Flexibility, #fcb031, white);
+                }
+
+                .communication {
+                    @include circular-progress(90, Communication, dodgerblue, white);
+                }
+
+                .problem {
+                    @include circular-progress(99, Problem Solving, seagreen, white);
+                }
+
+                .intercultural {
+                    @include circular-progress(99, Intercultural, dimgray, white);
+                }
+
+                .leadership {
+                    @include circular-progress(95, Leadership, violet, white);
+                }
+
+                .time {
+                    @include circular-progress(99, Punctuality, tomato, white);
+                }
+            }
+        }
+    }
+
+    .portfolio__inner {
+        @include flexBox(row, space-between, center);
+    }
+
+    .card {
+        width: 25%;
+        height: 525px;
+        margin: 20px 20px 20px 0;
+
+        h5 {
+            text-align: center;
+        }
+
+        .btn-success {
+            font-weight: 500;
+            background-color: map-get($colors, support);
+        }
+    }
+
+    .timeline {
+        width: 100%;
+        margin: 20px auto;
+        position: relative;
+
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(100%);
+            width: 1px;
+            height: 100%;
+            background: map-get($colors, support);
+            @include shadow(2px, 2px, 5px, map-get($colors, support));
+        }
+
+        article {
+            width: 100%;
+            margin: 0 0 20px 0;
+            position: relative;
+        }
+        
+        article:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        article div.timeline__inner {
+            width: 40%;
+            float: left;
+            margin: 5px;
+            border-radius: 6px;
+            border: 1px solid map-get($colors, hr);
+            @include shadow(2px, 2px, 5px, map-get($colors, hr));
+
+            p {
+                padding: 5px 10px !important;
+                font-size: 16px !important;
+                font-weight: 400 !important;
+                line-height: 20px;
+            }
+
+            h2 {
+                word-spacing: .4rem;
+            }
+        }
+
+        article div.timeline__inner span.date {
+            display: block;
+            width: 70px;
+            height: 70px;
+            padding: 5px 0;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin: 0 0 0 -32px;
+            border-radius: 100%;
+            font-size: 12px;
+            font-weight: 900;
+            text-transform: uppercase;
+            background: map-get($colors, main);
+            color: black;
+            border: 2px solid map-get($colors, support);
+            box-shadow: 3px 3px 15px map-get($colors, main);
+        }
+
+        article div.timeline__inner span.date span {
+            display: block;
+            text-align: center;
+        }
+
+        article div.timeline__inner span.date span.day {
+            font-size: 10px;
+        }
+
+        article div.timeline__inner span.date span.month {
+            font-size: 18px;
+        }
+
+        article div.inner span.date span.year {
+            font-size: 10px;
+        }
+
+        article div.timeline__inner h2 {
+            padding: 15px;
+            margin: 0;
+            color: #fff;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            border-radius: 6px 6px 0 0;
+            position: relative;
+        }
+
+        article div.timeline__inner h2:after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: -5px;
+            width: 10px;
+            height: 10px;
+            transform: rotate(-45deg);
+        }
+
+        article div.timeline__inner p {
+            padding: 15px;
+            margin: 0;
+            font-size: 14px;
+            background: #fff;
+            color: #656565;
+            border-radius: 0 0 6px 6px;
+        }
+
+        article:nth-child(even) div.timeline__inner {
+            float: right;
+        }
+
+        article:nth-child(odd) div.timeline__inner h2:after {
+            left: -5px;
+        }
+
+        article:nth-child(even) div.timeline__inner h2 {
+            background: map-get($colors, support);
+        }
+
+        article:nth-child(odd) div.timeline__inner h2 {
+            background: map-get($colors, main);
+            color: black;
+        }
+    }
+
+    .references {
+        h2 {
+            margin-bottom: 40px;
+        }
+
+        .references__inner {
+            width: 80%;
+            margin: 0 auto;
+
+            .refer {
+                margin: 10px 0;
+
+                span {
+                    font-style: italic;
+                    color: grey;
+                }
+
+                p {
+                    margin-top: 10px;
+                }
+
+                img {
+                    width: 60px;
+                    border-radius: 50%;
+                    float: left;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+
+    .interests {
+        width: $full-width;
+
+        .interests__inner {
+            width: 80%;
+            margin: 0 auto;
+            @include flexBox(row, space-between, center);
+            flex-wrap: wrap;
+            
+            .hobby {
+                width: 33%;
+                margin: 10px 0;
+
+                span {
+                    font-size: 24px;
+
+                    .fas {
+                        margin-right: 10px;
+                        color: map-get($colors, support);
+                    }
+                }
+            }
+        }
+    }
+
+    .blog {
+        width: $full-width;
+
+        p {
+            text-align: center;
+        }
+
+        button {
+            @include buttonStyle;
+
+            a {
+                @include aStyle;
+            }
+        }
+    }
+
+    .contact {
+        width: $full-width;
+
+        .contact__inner {
+            width: 50%;
+            margin: 0 auto;
+
+            form {
+                @include flexBox(column, center, center);
+
+                legend {
+                    text-align: center;
+                }
+
+                label {
+                    margin: 10px 0;
+                }
+
+                input, textarea {
+                    width: 100%;
+                    background-color: #eeeeee;
+                    border: 1px solid map-get($colors, hr);
+                    padding: 5px 10px;
+
+                    &:focus {
+                        outline: 0;
+                        border: 2px solid map-get($colors, main);
+                        @include shadow(2px, 2px, 10px, map-get($colors, main));
+                    }
+                }
+
+                button {
+                    @include buttonStyle;
+                    margin: 20px 0;
+
+                    a {
+                        @include aStyle;
+                    }
+                }
+            }
+        }
+    }
+}
+
+aside {
+    position: sticky;
+    top: 0;
+    width: 20%;
+    height: auto;
+    background-color: map-get($colors, main);
+    @include flexBox(column, center, center);
+    margin: 20px 10px 20px 20px;
+    padding: 20px;
+    border-radius: 5px;
+    @include shadow(2px, 2px, 10px, grey);
+
+    h2 {
+        @include heading2;
+    }
+
+    .aside__title {
+        margin-bottom: 20px;
+    }
+
+    .aside__links span {
+        margin: 0 7px;
+    }
+
+    .aside__links span svg {
+        color: map-get($colors, support);
+
+        &:hover {
+            color: #2f593b;
+        }
+    }
+
+    img {
+        width: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+}
+
+nav {
+    width: 2%;
+    margin: 20px 10px 0 10px;
+    position: sticky;
+    top: 0;
+
+    ul {
+        padding: 0;
+        margin: 0;
+
+        img {
+            width: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .fas, .far {
+            font-size: 32px;
+            margin: 10px 0 10px 8px;
+            color: map-get($colors, support);
+
+            &:hover {
+                color: #2f593b;
+            }
+        }
+    }
+}
+
+footer {
+    height: 50px;
+    line-height: 30px;
+    font-style: italic;
+    text-align: right;
+    margin-right: 30px;
+}
